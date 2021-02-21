@@ -1,0 +1,50 @@
+.post-content .markdown-text {
+    line-height: 1.8;
+    min-height: 1em;
+    p,
+    h2,
+    h3 {
+        margin-top: 15px;
+    }
+}
+
+.markdown-text {
+    font-size: 14px;
+    color: #444;
+    word-break: break-all;
+    padding: 0px 5px;
+
+    min-height: 1em;
+
+    h2,
+    h3 {
+        border-bottom: 1px solid #eee;
+    }
+
+    ul {
+        margin-left: 20px;
+    }
+
+    ul,
+    ol,
+    li {
+        list-style: unset;
+    }
+
+    a {
+        color: #08c;
+    }
+
+    img {
+        max-width: 80%;
+        display: block;
+        margin: 20px auto;
+    }
+
+    pre {
+        background-color: #eee;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+}

@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+    <Footer v-show="footerShow" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Footer from "@/components/Footer";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Footer,
+  },
+  computed: {
+    footerShow() {
+      return this.$store.state.global.footerShow;
+    },
+  },
+};
 </script>
 
-<style>
+<style lang="scss">
+@import url(https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css);
+@import "@/styles/reset.scss";
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  position: relative;
 }
 </style>
