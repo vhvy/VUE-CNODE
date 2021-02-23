@@ -112,6 +112,7 @@ export default {
 
     .logo {
       width: 50vw;
+      max-width: 400px;
       margin: 0 auto;
       display: block;
     }
