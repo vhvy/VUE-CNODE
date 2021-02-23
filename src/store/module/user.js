@@ -67,6 +67,9 @@ const user = {
                     status: true
                 };
             } else {
+
+                context.commit("CLEANTOKEN");
+
                 return {
                     status: false,
                     msg: result.body.error_msg
