@@ -87,11 +87,13 @@ async function valid(next, redirect, test = false) {
 }
 
 router.beforeResolve((to, from, next) => {
-    console.log(to, from);
+
     const { title, setTitle = true } = to.meta || {};
+
     if (setTitle) {
         document.title = title ? `${title} - ${baseTitle}` : baseTitle;
     }
+    
     next();
 });
 

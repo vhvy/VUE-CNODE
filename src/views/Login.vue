@@ -19,12 +19,26 @@
         @click="handleSubmit"
         >提交</mu-button
       >
+      <mu-button
+        style="margin-top: 20px"
+        color="error"
+        full-width
+        large
+        @click="clearToken"
+        >清空本地TOKEN</mu-button
+      >
     </mu-form>
+    <QrcodeScanner @scan-success="setToken" />
   </div>
 </template>
 
 <script>
+import QrcodeScanner from "@/components/QrcodeScanner";
+
 export default {
+  components: {
+    QrcodeScanner,
+  },
   data() {
     return {
       form: {
@@ -45,6 +59,17 @@ export default {
     };
   },
   methods: {
+    setToken(token) {
+      this.form.token = token;
+    },
+    clearToken() {
+      this.$store.commit("user/CLEANTOKEN");
+      this.form.token = "";
+      this.$toast.success({
+        message: "清空成功!",
+        position: "top",
+      });
+    },
     checkToken(val) {
       return /^[a-z0-9]{8}(-[a-z0-9]{4}){3}-[a-z0-9]{12}$/g.test(val);
     },

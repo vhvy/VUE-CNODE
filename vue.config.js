@@ -8,10 +8,14 @@ module.exports = {
                 });
                 return args;
             });
-        config.plugin("html")
+        config
+            .plugin("html")
             .tap(args => {
                 args[0]['title'] = "CNODE";
                 return args;
             });
+    },
+    devServer: {
+        https: true
     }
 }
